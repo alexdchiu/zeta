@@ -11,6 +11,20 @@ services:
       - ./app:/app
     environment:
       - SECRET_KEY=devsecretkey
-    # for local development only
+      # for local development only
       - DEBUG=1
+      - DB_HOST=db
+      # name of the service we're connecting to
+      - DB_NAME=devdb
+      - DB_USER=devuser
+      - DB_PASS=changeme
+    depends_on:
+      - db
+      # set up dependency on app container on the db container. db should start before app. there should be a network connection setup between app and db
 
+  db:
+    image: postgres:13-alpine
+    environment:
+      - POSTGRES_DB=devdb
+      - POSTGRES_USER=devuser
+      - POSTGRES_PASSWORD=changeme
