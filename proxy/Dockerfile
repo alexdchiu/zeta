@@ -20,3 +20,7 @@ RUN mkdir -p /vol/static && \
     chmod +x /run.sh 
 
 VOLUME /vol/static
+
+USER nginx
+
+CMD ["/run.sh"]

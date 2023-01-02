@@ -29,7 +29,7 @@ services:
       # set up dependency on app container on the db container. db should start before app. there should be a network connection setup between app and db
 
   db:
-    image: postgres:13-alpine
+    image: postgres:15-alpine
     environment:
       - POSTGRES_DB=devdb
       - POSTGRES_USER=devuser
