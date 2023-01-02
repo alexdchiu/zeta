@@ -35,10 +35,14 @@ services:
       - POSTGRES_USER=devuser
       - POSTGRES_PASSWORD=changeme
 
-  # front_end:
-  #   build:
-  #     context: ./front_end
-  #   command: npm start
-  #   volumes:
-  #     - ./front_end:/front_end
+  front_end:
+    build:
+      context: ./front_end
+    ports:
+      - "3000:3000"
+    container_name: front_end
+
+    volumes:
+      - ./front_end:/front_end
+      - /front_end/node_modules
     
