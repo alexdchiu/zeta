@@ -34,3 +34,11 @@ services:
       - POSTGRES_DB=devdb
       - POSTGRES_USER=devuser
       - POSTGRES_PASSWORD=changeme
+
+  # front_end:
+  #   build:
+  #     context: ./front_end
+  #   command: npm start
+  #   volumes:
+  #     - ./front_end:/front_end
+    
